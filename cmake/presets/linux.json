@@ -115,7 +115,7 @@
 		},
 
 		{
-			"name": "linux_x86-64_mingw_ninja_base",
+			"name": "linux_x86-64_gcc_ninja_base",
 			"inherits": "linux_base",
 			"description": "Tagets Linux x86-64 using GCC and Ninja",
 			"generator": "Ninja",
@@ -127,10 +127,10 @@
 		},
 
 		{
-			"name": "linux_x86-64_debug_mingw_ninja",
-			"inherits": "linux_x86-64_mingw_ninja_base",
+			"name": "linux_x86-64_debug_gcc_ninja",
+			"inherits": "linux_x86-64_gcc_ninja_base",
 			"description": "Tagets Linux x86-64(Debug) using GCC and Ninja",
-			"displayName": "Linux x86-64 Debug MinGW Ninja",
+			"displayName": "Linux x86-64 Debug GCC Ninja",
 			"hidden": false,
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Debug"
@@ -138,10 +138,10 @@
 		},
 
 		{
-			"name": "linux_x86-64_release_mingw_ninja",
-			"inherits": "linux_x86-64_mingw_ninja_base",
+			"name": "linux_x86-64_release_gcc_ninja",
+			"inherits": "linux_x86-64_gcc_ninja_base",
 			"description": "Tagets Linux x86-64(Release) using GCC and Ninja",
-			"displayName": "Linux x86-64 Release MinGW Ninja",
+			"displayName": "Linux x86-64 Release GCC Ninja",
 			"hidden": false,
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Release"
@@ -149,10 +149,10 @@
 		},
 
 		{
-			"name": "linux_x86-64_dist_mingw_ninja",
-			"inherits": "linux_x86-64_mingw_ninja_base",
+			"name": "linux_x86-64_dist_gcc_ninja",
+			"inherits": "linux_x86-64_gcc_ninja_base",
 			"description": "Tagets Linux x86-64(Distribution) using GCC and Ninja",
-			"displayName": "Linux x86-64 Dist MinGW Ninja",
+			"displayName": "Linux x86-64 Dist GCC Ninja",
 			"hidden": false,
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Dist"
