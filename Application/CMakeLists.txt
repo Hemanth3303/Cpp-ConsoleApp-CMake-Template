@@ -29,7 +29,7 @@ target_compile_definitions(Application
 		APPLICATION
 )
 
-# ---------- PLATFORM AND COMPILER SPECIFIC ----------
+# PLATFORM AND COMPILER SPECIFIC
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 
@@ -134,7 +134,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 
 endif()
 
-# ---------- CONFIGURATION SPECIFIC ----------
+# bCONFIGURATION SPECIFIC
 
 target_compile_definitions(Application
 	PUBLIC
@@ -150,7 +150,7 @@ target_compile_definitions(Application
 		$<$<CONFIG:Release>:NDEBUG>
 )
 
-# ---------- POST-BUILD RESOURCE COPY ----------
+# POST-BUILD RESOURCE COPY
 
 add_custom_command(
 	TARGET Application POST_BUILD
