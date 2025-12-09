@@ -1,5 +1,5 @@
 # Cpp-ConsoleApp-CMake-Template
-A template application for C++ using CMake
+A template for making a Console Application in C++ using CMake
 
 ## Usage Example
 Specify a generator manually like so: 
@@ -9,7 +9,7 @@ cmake --build build
 .\build\Debug\Application.exe
 ```
 Or use a predefined preset <br>
-For example, to use the gcc and makefiles for a debug build on windows x86-64:
+For example, to use gcc and makefiles for a debug build on windows x86-64:
 ```bash
 cmake --preset=windows_x86-64_debug_mingw-w64_makefiles
 cmake --build build
