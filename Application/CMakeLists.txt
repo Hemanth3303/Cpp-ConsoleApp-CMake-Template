@@ -134,7 +134,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 
 endif()
 
-# bCONFIGURATION SPECIFIC
+# CONFIGURATION SPECIFIC
 
 target_compile_definitions(Application
 	PUBLIC
