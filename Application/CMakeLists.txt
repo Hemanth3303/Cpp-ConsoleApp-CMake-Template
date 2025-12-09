@@ -74,7 +74,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 			PUBLIC
 
 			PRIVATE
-				-static
 		)
 	endif()
 
