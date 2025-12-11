@@ -53,9 +53,9 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 	elseif(MINGW)
 		target_link_libraries(Application
 			PUBLIC
-
-			PRIVATE
 				m
+			PRIVATE
+
 		)
 		target_link_options(Application
 			PUBLIC
