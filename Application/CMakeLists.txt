@@ -11,7 +11,6 @@ set_target_properties(Application PROPERTIES
 	C_STANDARD 17
 	C_STANDARD_REQUIRED ON
 	C_EXTENSIONS OFF
-	POSITION_INDEPENDENT_CODE ON
 	OUTPUT_NAME Application
 )
 
@@ -40,7 +39,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 			NOMINMAX
 			_CRT_SECURE_NO_WARNINGS
 			WIN32_LEAN_AND_MEAN
-			APP_PLATFORM_WINDOWS
+			APPLICATION_PLATFORM_WINDOWS
 	)
 
 	if(MSVC)
@@ -88,17 +87,17 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 		PUBLIC
 
 		PRIVATE
-			APP_PLATFORM_LINUX
+			APPLICATION_PLATFORM_LINUX
 	)
 
 	if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 		target_link_libraries(Application
 			PUBLIC
-
-			PRIVATE
 				dl
 				m
 				pthread
+			PRIVATE
+
 		)
 		target_link_options(Application
 			PUBLIC
@@ -127,7 +126,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 		PUBLIC
 
 		PRIVATE
-			APP_PLATFORM_OSX
+			APPLICATION_PLATFORM_OSX
 	)
 
 endif()
@@ -138,13 +137,13 @@ target_compile_definitions(Application
 	PUBLIC
 
 	PRIVATE
-		$<$<CONFIG:Debug>:APP_DEBUG_BUILD>
+		$<$<CONFIG:Debug>:APPLICATION_DEBUG_BUILD>
 		$<$<CONFIG:Debug>:DEBUG>
 
-		$<$<CONFIG:Profile>:APP_PROFILE_BUILD>
+		$<$<CONFIG:Profile>:APPLICATION_PROFILE_BUILD>
 		$<$<CONFIG:Profile>:NDEBUG>
 
-		$<$<CONFIG:Release>:APP_RELEASE_BUILD>
+		$<$<CONFIG:Release>:APPLICATION_RELEASE_BUILD>
 		$<$<CONFIG:Release>:NDEBUG>
 )
 
@@ -153,7 +152,7 @@ target_compile_definitions(Application
 add_custom_command(
 	TARGET Application POST_BUILD
 	COMMAND ${CMAKE_COMMAND} -E copy_directory
-		${CMAKE_CURRENT_SOURCE_DIR}/res
-		${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/res
+		"${CMAKE_CURRENT_SOURCE_DIR}/res"
+		"$<TARGET_FILE_DIR:Application>/res"
 	COMMENT "Copying resource folder to binary directory"
 )
