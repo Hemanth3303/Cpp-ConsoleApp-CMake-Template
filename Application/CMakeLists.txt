@@ -28,6 +28,9 @@ target_compile_definitions(Application
 		APPLICATION
 )
 
+cmake_base_target_platform_definitions(Application APPLICATION)
+cmake_base_target_architecture_definitions(Application APPLICATION)
+
 # PLATFORM AND COMPILER SPECIFIC
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
@@ -39,7 +42,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 			NOMINMAX
 			_CRT_SECURE_NO_WARNINGS
 			WIN32_LEAN_AND_MEAN
-			APPLICATION_PLATFORM_WINDOWS
 	)
 
 	if(MSVC)
@@ -83,13 +85,6 @@ endif()
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 
-	target_compile_definitions(Application
-		PUBLIC
-
-		PRIVATE
-			APPLICATION_PLATFORM_LINUX
-	)
-
 	if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 		target_link_libraries(Application
 			PUBLIC
@@ -117,17 +112,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 			PRIVATE
 		)
 	endif()
-
-endif()
-
-if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
-
-	target_compile_definitions(Application
-		PUBLIC
-
-		PRIVATE
-			APPLICATION_PLATFORM_OSX
-	)
 
 endif()
 
