@@ -54,6 +54,7 @@ int main(int argc, char** argv) {
 #endif
 	std::cout << "\n";
 
+	std::cout << "Press Enter Key To Exit...";
 	std::cin.get();
 
 	return 0;

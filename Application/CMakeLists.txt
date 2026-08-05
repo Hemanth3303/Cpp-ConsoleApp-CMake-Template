@@ -26,10 +26,19 @@ target_compile_definitions(Application
 
 	PRIVATE
 		APPLICATION
+		$<$<CONFIG:Debug>:APPLICATION_DEBUG_BUILD>
+		$<$<CONFIG:Debug>:DEBUG>
+
+		$<$<CONFIG:Profile>:APPLICATION_PROFILE_BUILD>
+		$<$<CONFIG:Profile>:NDEBUG>
+
+		$<$<CONFIG:Release>:APPLICATION_RELEASE_BUILD>
+		$<$<CONFIG:Release>:NDEBUG>
 )
 
 cmake_base_target_platform_definitions(Application APPLICATION)
 cmake_base_target_architecture_definitions(Application APPLICATION)
+cmake_base_apply_sanitizers(Application SANITIZERS ASAN UBSAN CONFIGS Debug)
 
 # PLATFORM AND COMPILER SPECIFIC
 
@@ -113,22 +122,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 	endif()
 
 endif()
-
-# CONFIGURATION SPECIFIC
-
-target_compile_definitions(Application
-	PUBLIC
-
-	PRIVATE
-		$<$<CONFIG:Debug>:APPLICATION_DEBUG_BUILD>
-		$<$<CONFIG:Debug>:DEBUG>
-
-		$<$<CONFIG:Profile>:APPLICATION_PROFILE_BUILD>
-		$<$<CONFIG:Profile>:NDEBUG>
-
-		$<$<CONFIG:Release>:APPLICATION_RELEASE_BUILD>
-		$<$<CONFIG:Release>:NDEBUG>
-)
 
 # POST-BUILD RESOURCE COPY
 

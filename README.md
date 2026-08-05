@@ -1,6 +1,9 @@
 # Cpp-ConsoleApp-CMake-Template
 A template for making a Console Application in C++ using CMake
 
+## Note
+ASAN and UBSAN (if available) are enabled in debug build in this template example.
+
 ## Usage Example
 First clone the repo recursively.
 
