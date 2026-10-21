@@ -36,8 +36,9 @@ target_compile_definitions(Application
 		$<$<CONFIG:Release>:NDEBUG>
 )
 
-cmake_base_target_platform_definitions(Application APPLICATION)
-cmake_base_target_architecture_definitions(Application APPLICATION)
+cmake_base_apply_os_definitions_to_target(Application APPLICATION)
+cmake_base_apply_architecture_definitions_to_target(Application APPLICATION)
+cmake_base_apply_compiler_definitions_to_target(Application APPLICATION)
 cmake_base_apply_sanitizers(Application SANITIZERS ASAN UBSAN CONFIGS Debug)
 
 # PLATFORM AND COMPILER SPECIFIC
