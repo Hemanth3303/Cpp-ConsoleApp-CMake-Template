@@ -36,3 +36,13 @@ add_custom_command(
 		"$<TARGET_FILE_DIR:Application>/res"
 	COMMENT "Copying resource folder to binary directory"
 )
+
+# adding res to install
+# cmake-base already handles bin, lib and include
+# Note to future self:
+# res/ means copy contents of res to bin/res
+# if just res, then it will copy to bin/res/res
+install(
+	DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/res/"
+    DESTINATION bin/res
+)

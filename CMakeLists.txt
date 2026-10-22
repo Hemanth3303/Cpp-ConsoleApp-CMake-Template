@@ -10,5 +10,6 @@ print_var(CMAKE_BUILD_TYPE)
 print_var(CMAKE_ARCHIVE_OUTPUT_DIRECTORY)
 print_var(CMAKE_LIBRARY_OUTPUT_DIRECTORY)
 print_var(CMAKE_RUNTIME_OUTPUT_DIRECTORY)
+print_var(CMAKE_INSTALL_PREFIX)
 
 add_subdirectory("Application")
